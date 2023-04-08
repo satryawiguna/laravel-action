@@ -3,6 +3,7 @@
 use App\Http\Controllers\Profile\DestroyProfile;
 use App\Http\Controllers\Profile\EditProfile;
 use App\Http\Controllers\Profile\UpdateProfile;
+use App\Http\Controllers\Weather\ViewWeather;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -39,6 +40,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', EditProfile::class)->name('profile.edit');
     Route::patch('/profile', UpdateProfile::class)->name('profile.update');
     Route::delete('/profile', DestroyProfile::class)->name('profile.destroy');
+
+    Route::get('/weather', ViewWeather::class)->name('weather');
 });
 
 require __DIR__.'/auth.php';
